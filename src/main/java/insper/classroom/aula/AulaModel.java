@@ -27,7 +27,7 @@ public class AulaModel {
     private String id;
 
     @Column(name = "tx_name")
-    private String name;
+    private String nome;
 
     @Column(name = "tx_description")
     private String descricao;
@@ -46,17 +46,22 @@ public class AulaModel {
 
     public AulaModel(Aula o) {
         this.id = o.id();
-        this.name = o.name();
-        this.email = o.email();
-        this.hash = o.hash();
+        this.nome = o.nome();
+        this.descricao = o.descricao();
+        this.data = o.data();
+        this.duracao = o.duracao();
+        this.id_professor = o.id_professor();
+
     }
 
     public Aula to() {
         return Aula.builder()
                 .id(id)
-                .name(name)
-                .email(email)
-                .hash(hash)
+                .nome(nome)
+                .descricao(descricao)
+                .data(data)
+                .duracao(duracao)
+                .id_professor(id_professor)
                 .build();
     }
 

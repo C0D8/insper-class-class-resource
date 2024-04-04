@@ -14,32 +14,32 @@ import lombok.NonNull;
 public class AulaService {
 
     @Autowired
-    private AccountRepository accountRepository;
+    private AulaRepository aulaRepository;
 
-    public Account create(Account in) {
-        in.hash(calculateHash(in.password()));
-        in.password(null);
-        return accountRepository.save(new AccountModel(in)).to();
+    public Aula create(Aula in) {
+        // in.hash(calculateHash(in.password()));
+        // in.password(null);
+        return aulaRepository.save(new AulaModel(in)).to();
     }
 
-    public Account read(@NonNull String id) {
-        return accountRepository.findById(id).map(AccountModel::to).orElse(null);
-    }
+    // public Account read(@NonNull String id) {
+    //     return accountRepository.findById(id).map(AccountModel::to).orElse(null);
+    // }
 
-    public Account auth(String email, String password) {
-        String hash = calculateHash(password);
-        return accountRepository.findByEmailAndHash(email, hash).map(AccountModel::to).orElse(null);
-    }
+    // public Account auth(String email, String password) {
+    //     String hash = calculateHash(password);
+    //     return accountRepository.findByEmailAndHash(email, hash).map(AccountModel::to).orElse(null);
+    // }
 
-    private String calculateHash(String text) {
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(text.getBytes(StandardCharsets.UTF_8));
-            byte[] encoded = Base64.getEncoder().encode(hash);
-            return new String(encoded);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    // private String calculateHash(String text) {
+    //     try {
+    //         MessageDigest digest = MessageDigest.getInstance("SHA-256");
+    //         byte[] hash = digest.digest(text.getBytes(StandardCharsets.UTF_8));
+    //         byte[] encoded = Base64.getEncoder().encode(hash);
+    //         return new String(encoded);
+    //     } catch (NoSuchAlgorithmException e) {
+    //         throw new RuntimeException(e);
+    //     }
+    // }
 
 }
