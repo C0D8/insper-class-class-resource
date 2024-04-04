@@ -1,17 +1,19 @@
 package insper.classroom.aula;
 
-public class AccountParser {
+import main.java.insper.classroom.aula.CreateAulaIn;
 
-    public static Account to(AccountIn in) {
-        return Account.builder()
+public class AulaParser {
+
+    public static Aula to(CreateAulaIn in) {
+        return Aula.builder()
                 .email(in.email())
                 .name(in.name())
                 .password(in.password())
                 .build();
     }
 
-    public static AccountOut to(Account account) {
-        return AccountOut.builder()
+    public static CreateAulaOut to(Aula account) {
+        return CreateAulaOut.builder()
                 .id(account.id())
                 .email(account.email())
                 .name(account.name())

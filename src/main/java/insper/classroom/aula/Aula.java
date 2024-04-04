@@ -10,12 +10,12 @@ import lombok.experimental.Accessors;
 @Getter @Setter @Accessors(chain = true, fluent = true)
 @NoArgsConstructor @AllArgsConstructor
 @Builder
-public class Account {
-
-    private String id;
-    private String name;
-    private String email;
-    private String hash;
-    private String password;
+public class Aula {
+    private Integer id;
+    private Date data;
+    private Integer duracao;
+    private String descricao;
+    private String materia;
+    private Integer idProfessor;
     
 }
