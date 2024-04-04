@@ -11,11 +11,14 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor @AllArgsConstructor
 @Builder
 public class Aula {
-    private Integer id;
-    private Date data;
-    private Integer duracao;
+
+    private String id;
+    private String id_professor;
+    private String nome;
     private String descricao;
-    private String materia;
-    private Integer idProfessor;
+    private String data;
+    private String duracao;
+    
+    
     
 }
