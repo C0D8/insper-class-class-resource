@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import lombok.NonNull;
 
 @Service
-public class AccountService {
+public class AulaService {
 
     @Autowired
     private AccountRepository accountRepository;

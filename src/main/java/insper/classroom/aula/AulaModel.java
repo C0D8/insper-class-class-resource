@@ -19,31 +19,40 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(of = "id")
 @Builder @Getter @Setter @Accessors(chain = true, fluent = true)
 @NoArgsConstructor @AllArgsConstructor
-public class AccountModel {
+public class AulaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id_account")
+    @Column(name = "id_aula")
     private String id;
 
     @Column(name = "tx_name")
     private String name;
 
-    @Column(name = "tx_email")
-    private String email;
+    @Column(name = "tx_description")
+    private String descricao;
 
-    @Column(name = "tx_hash")
-    private String hash;
+    @Column(name = "dt_date")
+    private String data;
 
-    public AccountModel(Account o) {
+    @Column(name = "duration")
+    private Integer duracao;
+
+    @Column(name = "id_professor")
+    private String id_professor;
+
+
+
+
+    public AulaModel(Aula o) {
         this.id = o.id();
         this.name = o.name();
         this.email = o.email();
         this.hash = o.hash();
     }
 
-    public Account to() {
-        return Account.builder()
+    public Aula to() {
+        return Aula.builder()
                 .id(id)
                 .name(name)
                 .email(email)

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
-public class AccountResource implements AccountController {
+public class AulaResource implements AccountController {
 
     @Autowired
     private AccountService accountService;
