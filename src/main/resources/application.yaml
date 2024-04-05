@@ -1,6 +1,6 @@
 spring:
   application:
-    name: classroom-class
+    name: classroom-aula
   datasource:
     url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/store}
     username: ${DATABASE_USERNAME:store}

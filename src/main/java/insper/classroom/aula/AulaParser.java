@@ -1,7 +1,5 @@
 package insper.classroom.aula;
 
-import insper.classroom.aula.CreateAulaIn;
-
 public class AulaParser {
 
     public static Aula to(CreateAulaIn in) {
