@@ -22,6 +22,10 @@ public class AulaService {
         return aulaRepository.save(new AulaModel(in)).to();
     }
 
+    public Aula read(@NonNull String id) {
+        return aulaRepository.findById(id).map(AulaModel::to).orElse(null);
+    }
+
     // public Account read(@NonNull String id) {
     //     return accountRepository.findById(id).map(AccountModel::to).orElse(null);
     // }

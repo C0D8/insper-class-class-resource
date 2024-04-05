@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import java.util.Date;
 
 @Getter @Setter @Accessors(chain = true, fluent = true)
 @NoArgsConstructor @AllArgsConstructor
@@ -16,7 +17,7 @@ public class Aula {
     private String id_professor;
     private String nome;
     private String descricao;
-    private String data;
+    private Date data;
     private String duracao;
     
     

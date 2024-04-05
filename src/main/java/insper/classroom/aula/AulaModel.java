@@ -13,6 +13,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import java.util.Date;
+
 
 @Entity
 @Table(name = "aula")
@@ -33,10 +35,10 @@ public class AulaModel {
     private String descricao;
 
     @Column(name = "dt_date")
-    private String data;
+    private Date data;
 
     @Column(name = "duration")
-    private Integer duracao;
+    private String duracao;
 
     @Column(name = "id_professor")
     private String id_professor;

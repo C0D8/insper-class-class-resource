@@ -60,6 +60,16 @@ public class AulaResource implements AulaController {
                 .body(AulaParser.to(aula));
     }
 
+    @Override
+    public ResponseEntity<Aula> get(String id) {
+        Aula aula = aulaService.read(id);
+        if (aula == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(aula);
+    }
+
+
     // @Override
     // public ResponseEntity<AccountOut> update(String id, AccountIn in) {
     //     // TODO Auto-generated method stub
