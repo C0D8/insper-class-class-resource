@@ -1,6 +1,6 @@
 package insper.classroom.aula;
 
-import main.java.insper.classroom.aula.CreateAulaIn;
+import insper.classroom.aula.CreateAulaIn;
 
 public class AulaParser {
 
