@@ -34,7 +34,7 @@ public class AulaModel {
     @Column(name = "tx_description")
     private String descricao;
 
-    @Column(name = "dt_date")
+    @Column(name = "dt_start")
     private Date data;
 
     @Column(name = "duration")
