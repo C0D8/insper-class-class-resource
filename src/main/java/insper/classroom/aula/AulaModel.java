@@ -13,7 +13,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import java.util.Date;
 
 
 @Entity
@@ -35,7 +34,7 @@ public class AulaModel {
     private String descricao;
 
     @Column(name = "dt_start")
-    private Date data;
+    private String data;
 
     @Column(name = "duration")
     private String duracao;
