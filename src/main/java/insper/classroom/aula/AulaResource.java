@@ -61,12 +61,19 @@ public class AulaResource implements AulaController {
     }
 
     @Override
-    public ResponseEntity<Aula> get(String id) {
+    public ResponseEntity<CreateAulaOut> get(String id) {
         Aula aula = aulaService.read(id);
         if (aula == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(aula);
+
+       
+
+        System.out.println(aula.id());
+
+        // devolver a aula 
+
+        return ResponseEntity.ok(AulaParser.to(aula));
     }
 
 
