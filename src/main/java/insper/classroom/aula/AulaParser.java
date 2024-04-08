@@ -1,5 +1,7 @@
 package insper.classroom.aula;
 
+// import org.hibernate.mapping.List;
+
 public class AulaParser {
 
     public static Aula to(CreateAulaIn in) {
@@ -9,6 +11,7 @@ public class AulaParser {
                 .descricao(in.descricao())
                 .data(in.data())
                 .duracao(in.duracao())
+                .departamento(in.departamento())
                 .build();
     }
     
@@ -18,6 +21,9 @@ public class AulaParser {
                 .build();
 
     }
+
+   
+
 
 
 }

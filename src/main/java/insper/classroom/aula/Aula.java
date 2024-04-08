@@ -18,6 +18,7 @@ public class Aula {
     private String descricao;
     private String data;
     private String duracao;
+    private String departamento;
     
     
     

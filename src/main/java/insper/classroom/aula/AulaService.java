@@ -7,6 +7,8 @@ package insper.classroom.aula;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import lombok.NonNull;
 
@@ -24,6 +26,12 @@ public class AulaService {
 
     public Aula read(@NonNull String id) {
         return aulaRepository.findById(id).map(AulaModel::to).orElse(null);
+    }
+
+
+
+    public List<Aula> readByDepartamento(@NonNull String id_departamento) {
+        return aulaRepository.findByDepartamento(id_departamento).stream().map(AulaModel::to).collect(Collectors.toList());
     }
 
     // public Account read(@NonNull String id) {

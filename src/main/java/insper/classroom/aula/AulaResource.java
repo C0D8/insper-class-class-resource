@@ -1,5 +1,9 @@
 package insper.classroom.aula;
 
+// import org.hibernate.mapping.List;
+import java.util.List;
+import java.util.ArrayList;
+
 // import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,13 +71,30 @@ public class AulaResource implements AulaController {
             return ResponseEntity.notFound().build();
         }
 
-       
 
         System.out.println(aula.id());
 
         // devolver a aula 
 
         return ResponseEntity.ok(AulaParser.to(aula));
+    }
+
+
+    @Override
+    public ResponseEntity<List<CreateAulaOut>> getByDepartamento(String id) {
+       // lista de aulas por departamento
+        List<Aula> aulas = aulaService.readByDepartamento(id);
+        if (aulas == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        List<CreateAulaOut> aulasOut = new ArrayList<>(); // Initialize aulasOut as an empty list
+
+        for (Aula aula : aulas) {
+            //append aula apos parsear 
+            aulasOut.add(AulaParser.to(aula));
+        }
+        return ResponseEntity.ok(aulasOut);
     }
 
 

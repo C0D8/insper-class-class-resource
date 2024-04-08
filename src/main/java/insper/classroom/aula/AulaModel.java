@@ -42,6 +42,10 @@ public class AulaModel {
     @Column(name = "id_professor")
     private String id_professor;
 
+    
+    @Column(name = "departamento")
+    private String departamento;
+
 
 
 
@@ -52,6 +56,7 @@ public class AulaModel {
         this.data = o.data();
         this.duracao = o.duracao();
         this.id_professor = o.id_professor();
+        this.departamento = o.departamento();
 
     }
 
@@ -63,6 +68,7 @@ public class AulaModel {
                 .data(data)
                 .duracao(duracao)
                 .id_professor(id_professor)
+                .departamento(departamento)
                 .build();
     }
 
