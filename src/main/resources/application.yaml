@@ -13,6 +13,14 @@ spring:
     properties:
       hibernate:
         default_schema: aula
+
+  springdoc:
+    api-docs:
+      path: /aulas/v3/api-docs
+    swagger-ui:
+      path: /aulas/swagger-ui.html
+
+
 management:
   endpoints:
     web:

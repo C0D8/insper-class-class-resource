@@ -13,7 +13,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
+@Tag(name = "Aula Resource", description = "Aula Resource")
 public class AulaResource implements AulaController {
 
     @Autowired
@@ -49,6 +53,7 @@ public class AulaResource implements AulaController {
     // }
 
     @Override
+    @Operation(summary = "Create a new aula", description = "Create a new aula")
     public ResponseEntity<CreateAulaOut> create(CreateAulaIn in) {
         // parser
         Aula aula = AulaParser.to(in);
@@ -65,6 +70,7 @@ public class AulaResource implements AulaController {
     }
 
     @Override
+    @Operation(summary = "Get aula by id", description = "Get aula by id")
     public ResponseEntity<CreateAulaOut> get(String id) {
         Aula aula = aulaService.read(id);
         if (aula == null) {
@@ -81,6 +87,7 @@ public class AulaResource implements AulaController {
 
 
     @Override
+    @Operation(summary = "Get aula by departamento", description = "Get aula by departamento")
     public ResponseEntity<List<CreateAulaOut>> getByDepartamento(String id) {
        // lista de aulas por departamento
         List<Aula> aulas = aulaService.readByDepartamento(id);
