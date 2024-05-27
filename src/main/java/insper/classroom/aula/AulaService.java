@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.cache.annotation.Cacheable;
+
 
 import lombok.NonNull;
 
@@ -32,6 +34,7 @@ public class AulaService {
     }
 
     @CircuitBreaker(name = "aulaService", fallbackMethod = "fallbackAulaRead")
+    @Cacheable(key = "#id", value = "aula", unless = "#result == null")
     public Aula read(@NonNull String id) {
         return aulaRepository.findById(id).map(AulaModel::to).orElse(null);
     }

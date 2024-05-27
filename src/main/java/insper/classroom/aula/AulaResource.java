@@ -4,6 +4,7 @@ package insper.classroom.aula;
 import java.util.List;
 import java.util.ArrayList;
 
+
 // import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Operation;
+
 
 @RestController
 @Tag(name = "Aula Resource", description = "Aula Resource")
@@ -68,10 +70,12 @@ public class AulaResource implements AulaController {
                                 .toUri())
                 .body(AulaParser.to(aula));
     }
-
+    
     @Override
     @Operation(summary = "Get aula by id", description = "Get aula by id")
     public ResponseEntity<CreateAulaOut> get(String id) {
+
+        System.out.println("Entrei no get");
         Aula aula = aulaService.read(id);
         if (aula == null) {
             return ResponseEntity.notFound().build();

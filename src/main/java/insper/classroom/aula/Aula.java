@@ -1,17 +1,22 @@
 package insper.classroom.aula;
 
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import java.io.Serializable;
 
 @Getter @Setter @Accessors(chain = true, fluent = true)
 @NoArgsConstructor @AllArgsConstructor
 @Builder
-public class Aula {
+public class Aula implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    
     private String id;
     private String id_professor;
     private String nome;
