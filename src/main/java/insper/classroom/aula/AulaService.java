@@ -12,26 +12,41 @@ import java.util.stream.Collectors;
 
 import lombok.NonNull;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
 @Service
 public class AulaService {
 
     @Autowired
     private AulaRepository aulaRepository;
 
+    @CircuitBreaker(name = "aulaService", fallbackMethod = "fallbackAulaCreate")
     public Aula create(Aula in) {
         // in.hash(calculateHash(in.password()));
         // in.password(null);
         return aulaRepository.save(new AulaModel(in)).to();
     }
 
+    public Aula fallbackAulaCreate(Aula in, Throwable t) {
+        throw new RuntimeException("Failed to create aula", t);
+    }
+
+    @CircuitBreaker(name = "aulaService", fallbackMethod = "fallbackAulaRead")
     public Aula read(@NonNull String id) {
         return aulaRepository.findById(id).map(AulaModel::to).orElse(null);
     }
 
+    public Aula fallbackAulaRead(String id, Throwable t) {
+        throw new RuntimeException("Failed to read aula", t);
+    }
 
-
+    @CircuitBreaker(name = "aulaService", fallbackMethod = "fallbackAulaReadByDepartamento")
     public List<Aula> readByDepartamento(@NonNull String id_departamento) {
         return aulaRepository.findByDepartamento(id_departamento).stream().map(AulaModel::to).collect(Collectors.toList());
+    }
+
+    public List<Aula> fallbackAulaReadByDepartamento(String id_departamento, Throwable t) {
+        throw new RuntimeException("Failed to read aula by departamento", t);
     }
 
     // public Account read(@NonNull String id) {
